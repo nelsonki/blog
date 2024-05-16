@@ -18,12 +18,13 @@ def post_list(request):
         if response.status_code == 200:
             # Proceso exitoso, parsear y usar la data
             data = response.json()
-            return data.get('results', [])
+            return render(request, 'blog/post_list.html', {'posts':data})
+            #return data.get('results', [])
         else:
             # Manejar errores
             print('Error fetching data from Parse:', response.status_code, response.text)
             return None
 
-    # Usar la función en tu vista o lógica de negocio
-    objects = get_parse_data()  
-    return render(request, 'blog/post_list.html', {'posts':objects})
+        # Usar la función en tu vista o lógica de negocio
+        #objects = get_parse_data()  
+ 
