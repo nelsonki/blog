@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+ 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,7 @@ ALLOWED_HOSTS = ['blog-lv633x1b.b4a.run', 'localhost', '127.0.0.1', '[::1]']
 CSRF_TRUSTED_ORIGINS = [
     'https://*.b4a.run',
     'https://*.back4app.com',
-    # Agregar aquí más dominios si es necesario
+    # Agregar aquï¿½ mï¿½s dominios si es necesario
 ]
 # Application definition
 

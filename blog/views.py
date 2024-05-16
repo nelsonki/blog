@@ -2,29 +2,21 @@ from django.shortcuts import render
 from .models import Post
 from django.utils import timezone
 import requests
+from django.conf import settings
+from django.http import HttpResponse
 
-# Create your views here.
 def post_list(request):
-    #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    #return render(request, 'blog/post_list.html', {'posts':posts})
-    def get_parse_data():
-        headers = {
-            'X-Parse-Application-Id': 'BIKe377T64cE2OyCZIiExRu5hqxV8DkS5AH7rJfN',  # Reemplazar con tu ID de aplicación de Parse
-            'X-Parse-REST-API-Key': 'xhuEMTCuKKinvd28WbB2cz4pgUjQ2DKrtygeMqq4',      # Reemplazar con tu REST API Key de Parse
-        }
-    
-        response = requests.get('https://parseapi.back4app.com/b4aconsulta', headers=headers)
-    
-        if response.status_code == 200:
-            # Proceso exitoso, parsear y usar la data
-            data = response.json()
-            return render(request, 'blog/post_list.html', {'posts':data})
-            #return data.get('results', [])
-        else:
-            # Manejar errores
-            print('Error fetching data from Parse:', response.status_code, response.text)
-            return None
+    headers = {
+        'X-Parse-Application-Id': 'BIKe377T64cE2OyCZIiExRu5hqxV8DkS5AH7rJfN',
+        'X-Parse-REST-API-Key': '1ypPpH7UqrqkekilT2UXvGwElXPXMcrle9JLSvKB',     
+    }
+    response = requests.get('https://parseapi.back4app.com/b4aconsulta', headers=headers)
+    if response:
+        data = response.json()
+        print(data)
+        return render(request, 'blog/post_list.html', {'posts':data})
+    else:
+        print('Error fetching data from Parse' )
+        return HttpResponse(f'Error fetching data from Parse  ' , status=500)
 
-        # Usar la función en tu vista o lógica de negocio
-        #objects = get_parse_data()  
  
