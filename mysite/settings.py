@@ -17,10 +17,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 import environ
-
+import os
 # Initialise environment variables
 env = environ.Env()
-environ.Env.read_env()
+
+#environ.Env.read_env()
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 
 PARSE_APP_ID = env('PARSE_APP_ID')
 PARSE_REST_API_KEY = env('PARSE_REST_API_KEY')
