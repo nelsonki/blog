@@ -5,7 +5,8 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Variables de entorno.
-ENV PYTHONUNBUFFERED=true
+# ENV PYTHONUNBUFFERED=true
+ENV VAR_NAME=var_value
 
 # Copia e instala los requisitos de dependencia.
 COPY requirements.txt .
