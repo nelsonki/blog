@@ -10,13 +10,14 @@ def post_list(request):
         'X-Parse-Application-Id': 'BIKe377T64cE2OyCZIiExRu5hqxV8DkS5AH7rJfN',
         'X-Parse-REST-API-Key': '1ypPpH7UqrqkekilT2UXvGwElXPXMcrle9JLSvKB',     
     }
-    response = requests.get('https://parseapi.back4app.com/b4aconsulta', headers=headers)
-    if response:
+    response = requests.get('https://parseapi.back4app.com/classes/Consulta', headers=headers)
+    if response.status_code == 200:
         data = response.json()
         print(data)
         return render(request, 'blog/post_list.html', {'posts':data})
     else:
-        print('Error fetching data from Parse' )
-        return HttpResponse(f'Error fetching data from Parse  ' , status=500)
+        error_message = response.text  # El texto del error proporcionado por la API de Parse
+        print('Error fetching data from Parse: ', error_message)
+        return HttpResponse(f'Error fetching data from Parse: {error_message}', status=500)
 
- 
+    
