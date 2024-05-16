@@ -7,15 +7,15 @@
         <h1><a href="/">Django  Bloga</a></h1>
     </div>
     {% if error_message %}
-        <p>{{ error_message }}</p>
-    {% else %}
-        {% for post in posts %}
-            <div>
-                <p> publicado: {{ post.websorteospremiosracinumsorteo }}</p>
-                <p>{{ post.websorteospremiosraciserialcarton|linebreaksbr }}</p>
-            </div>
-        {% endfor %}
-    {% endif %}
+    <p>{{ error_message }}</p>
+{% else %}
+    {% for post in posts %}
+        <h2>{{ post.objectId }}</h2>
+        <p>{{ post.idwebsorteospremiosracimec }}</p>
+        <p>{{ post.websorteospremiosracinumsorteo }}</p>
+        <p>{{ post.websorteospremiosracidescripcion }}</p>
+    {% endfor %}
+{% endif %}
 
    
 </body>
