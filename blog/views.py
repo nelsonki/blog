@@ -7,8 +7,8 @@ from django.http import HttpResponse
 
 def post_list(request):
     headers = {
-        'X-Parse-Application-Id': 'BIKe377T64cE2OyCZIiExRu5hqxV8DkS5AH7rJfN',
-        'X-Parse-REST-API-Key': '1ypPpH7UqrqkekilT2UXvGwElXPXMcrle9JLSvKB',     
+        'X-Parse-Application-Id': settings.PARSE_APP_ID,
+        'X-Parse-REST-API-Key': settings.PARSE_REST_API_KEY,     
     }
     response = requests.get('https://parseapi.back4app.com/classes/b4aconsulta', headers=headers)
     if response.status_code == 200:
