@@ -18,5 +18,5 @@ COPY . .
 EXPOSE 8000
 
 # Define el comando para ejecutar tu aplicación.
-# Reemplaza 'run.py' con el script que inicia tu aplicación Flask.
+# REVISAR SI ESTE CMD ES CORRECTO PARA MI PROYECTO DE DJANGO.
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "blog.wsgi"]
