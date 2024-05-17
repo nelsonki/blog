@@ -1,22 +1,17 @@
-<html>
-<head>
-    <title>Consulta</title>
-</head>
-<body>
-    <div>
-        <h1><a href="/">Consultar resultados oficiales</a></h1>
-    </div>
-    {% if error_message %}
-    <p>{{ error_message }}</p>
-{% else %}
-    {% for post in posts %}
-        <h2>{{ post.objectId }}</h2>
-        <p>{{ post.idwebsorteospremiosracimec }}</p>
-        <p>{{ post.websorteospremiosracinumsorteo }}</p>
-        <p>{{ post.websorteospremiosracidescripcion }}</p>
-    {% endfor %}
-{% endif %}
+{% extends 'blog/base.html' %}
 
-   
-</body>
-</html>
+{% block content %}
+
+    {% if error_message %}
+     <p>{{ error_message }}</p>
+    {% else %}
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post.objectId }}</h2>
+                <p>{{ post.idwebsorteospremiosracimec }}</p>
+                <p>{{ post.websorteospremiosracinumsorteo }}</p>
+                <p>{{ post.websorteospremiosracidescripcion }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock   %}
