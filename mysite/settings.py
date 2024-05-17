@@ -16,16 +16,9 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import environ
-import os
 # Initialise environment variables
-env = environ.Env()
-
-environ.Env.read_env()
-#environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
-
-PARSE_APP_ID = env('PARSE_APP_ID')
-PARSE_REST_API_KEY = env('PARSE_REST_API_KEY')
+PARSE_APP_ID = 'BIKe377T64cE2OyCZIiExRu5hqxV8DkS5AH7rJfN'
+PARSE_REST_API_KEY = '1ypPpH7UqrqkekilT2UXvGwElXPXMcrle9JLSvKB'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
